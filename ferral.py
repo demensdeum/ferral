@@ -1,6 +1,10 @@
 from ollama_call import ollama_call
 from pydantic import BaseModel
 from sys import argv
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 target_argv_count = 4
 
@@ -12,8 +16,8 @@ class FerralCodegeneratorResponse(BaseModel):
     output: str
     comment: str
 
-model="qwen2.5-coder:3b"
-verbose=True
+model = os.getenv("MODEL_NAME", "qwen2.5-coder:3b")
+verbose = os.getenv("VERBOSE", "False").lower() == "true"
 
 input_filepath = argv[1]
 target_language = argv[2]
