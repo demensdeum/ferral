@@ -47,7 +47,7 @@ Create a file named `logic.ferl`:
 Invoke the script to transform instructions into your target language (e.g., Python):
 
 ```bash
-python ferral_gen.py logic.ferl python output.py
+python ferral.py logic.ferl python output.py
 ```
 
 ---
