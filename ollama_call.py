@@ -6,11 +6,15 @@ def ollama_call(
     user_prompt: str,
     format: Union[str, Dict[str, Any]],
     verbose: bool,
-    model: str ="gemma3:12b"
+    model: str="gemma3:12b",
+    num_predict=-1
 ) -> Any:
     LLM_PROMPT = user_prompt
+
     if verbose:
         print(f"Current System Prompt: {LLM_PROMPT}")
+        print(f"model: {model}")
+        print(f"num_predict: {num_predict}")
 
     OLLAMA_URL = "http://localhost:11434/api/generate"
 
@@ -22,6 +26,7 @@ def ollama_call(
         "stream": stream,
         "options": {
             "temperature": 0.8,
+            "num_predict": num_predict
         },
         "format": format
     }
@@ -33,6 +38,9 @@ def ollama_call(
             stream=stream,
             timeout=180
         )
+        if verbose:
+            print(response)
+
         response.raise_for_status()
 
         response_data = response.json()

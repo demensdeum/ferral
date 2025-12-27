@@ -1,0 +1,3 @@
+# Ferral: model gemma3:4b
+# Ferral: num_predict 512
+# Ferral: Generate window initialize in Pygame
