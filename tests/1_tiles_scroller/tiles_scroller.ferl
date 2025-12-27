@@ -18,7 +18,7 @@ def generate_grass():
 
 # Ferral: Make pygame function that will fill entire pygame screen with 64x64 surface copies from generate_grass func, it must be populated with copies of tile, call it fill_screen_with_grass, do not import pygame, it is imported already. Use global var called screen. Make grass_tile by calling generate_grass func, it is already in the code. Render start point is x: -64, y:0. Use "global x_tile_offset" at function beginning, make addition to x as global x_tile_offset % 64 before rendering rows. Make only tiling function, nothing more.
 
-# Ferral: Make pygame game loop function called gameloop, do not import pygame, there is global var called "running". There is global function called fill_screen_with_grass, call it on each frame. Add "global running" and "while running" loop. After calling fill_screen_with_grass func, make flip screen surface. Make addition 1 to global x_tile_offset var, every frame. Make only function, add close event handling there, nothing more.
+# Ferral: Make pygame game loop function called gameloop, do not import pygame, there is global var called "running". There is global function called fill_screen_with_grass, call it on each frame. Add "global running" and "while running" loop. After calling fill_screen_with_grass func, make flip screen surface. Make addition 1 to global x_tile_offset var, every frame. Make only function, poll events, handle close event handling there, nothing more.
 
 x_tile_offset = 0
 running = True
