@@ -1,13 +1,13 @@
-# Ferral: model gemma3:12b
+# Ferral: model devstral-small-2:latest
 # Ferral: num_predict 256
 
 import pygame
+import random
 
-# Ferral: Make pygame surface grass generator function, tile size is 64x64, no input arguments, call it generate_grass, make it noisy with two colors - green and white, do not import pygame, it is imported already. I need only function that returns surface
+# Ferral: Make pygame surface grass generator function, tile size is 64x64, no input arguments, call it generate_grass, make it noisy with two colors - green and white. Set global grass_tile var after generation, and use it as cache, return cache after first call. Do not import pygame, it is imported already. I need only function that returns surface
 
 # Ferral: Make function that set global Pygame var screen, call it init_screen(). Screen size is 1280x720. Do not import pygame, it is imported already.
 
-# Ferral: model devstral-small-2:latest
 # Ferral: Make pygame function that will fill entire pygame screen with 64x64 surface copies from generate_grass func, it must be populated with copies of tile, call it fill_screen_with_grass, do not import pygame, it is imported already. Use global var called screen. Make grass_tile by calling generate_grass func, it is already in the code. Make only tiling function, nothing more.
 
 # Ferral: Make pygame game loop function called gameloop, do not import pygame, there is global var called "running". There is global function called fill_screen_with_grass, call it on each frame. Add "global running" and "while running" loop. After calling fill_screen_with_grass func, make flip screen surface. Make only function, add close event handling there, nothing more.
