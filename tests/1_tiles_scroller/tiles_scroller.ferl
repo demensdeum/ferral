@@ -1,3 +1,19 @@
 # Ferral: model gemma3:4b
 # Ferral: num_predict 512
-# Ferral: Generate window initialize in Pygame
+
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption('My Game')
+
+running = True
+
+# Ferral: Make pygame surface grass generator function, call it generate_grass, do not import pygame, it is imported already. I need only function that returns surface
+
+# Ferral: Make function that return Pygame window, call it init_window, do not import pygame, it is imported already
+
+# Ferral: Make pygame game loop function called gameloop, do not import pygame, there is global var called "running". Make only function, add close event handling there, nothing more.
+
+gameloop()

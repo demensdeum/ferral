@@ -63,7 +63,5 @@ with open(input_filepath, 'r', encoding='utf-8') as file:
                 except Exception as e:
                     print(f"Validation Error: {e}")
 
-
-
             else:
                 output_file.write(line)
