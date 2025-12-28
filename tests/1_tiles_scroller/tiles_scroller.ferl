@@ -2,17 +2,8 @@
 # Ferral: num_predict 256
 
 import pygame
-import random
 
-def generate_grass():
-    global grass_tile
-    if 'grass_tile' not in globals():
-        grass_tile = pygame.Surface((64, 64))
-        for y in range(64):
-            for x in range(64):
-                intensity = int(255 * (1 - min(x/64, y/64)))
-                grass_tile.set_at((x, y), (34, intensity, 34, intensity))
-    return grass_tile
+# Ferral: Write a Python function called generate_grass using Pygame. The function should:Use a global variable grass_tile to cache the surface so it is only created once.Create a 64x64 Pygame Surface.Loop through every pixel $(x, y)$ and calculate an intensity value based on the formula: $255 \times (1 - \min(x/64, y/64))$.Set each pixel to a green color $(34, \text{intensity}, 34)$ with the alpha channel also set to that intensity.Return the grass_tile surface. Do not import pygame, it is imported already.
 
 # Ferral: Make function that set global Pygame var screen, call it init_screen(). Screen size is 1280x720. Do not import pygame, it is imported already.
 

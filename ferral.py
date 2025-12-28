@@ -13,7 +13,7 @@ if len(argv) != target_argv_count:
     exit(1)
 
 class FerralCodegeneratorResponse(BaseModel):
-    output: str
+    code: str
 
 model = os.getenv("MODEL_NAME", "qwen2.5-coder:3b")
 verbose = os.getenv("VERBOSE", "False").lower() == "true"
@@ -57,11 +57,21 @@ with open(input_filepath, 'r', encoding='utf-8') as file:
 
                 try:
                     result=FerralCodegeneratorResponse.model_validate_json(response_str)
-                    output_file.write(result.output)
-                    print(result.output)
+                    output_file.write(result.code)
+                    print(result.code)
 
                 except Exception as e:
                     print(f"Validation Error: {e}")
+                    print("Probably ollama bug with structured output for cloud models: https://github.com/ollama/ollama/issues/12362")
+                    print("trying to extract...")
+                    code_lines = response_str.split("\n")
+                    if code_lines[0].startswith("```"):
+                        code_lines.pop(0)
+                    if code_lines[len(code_lines) - 1].startswith("```"):
+                        code_lines.pop(len(code_lines) - 1)
+                    
+                    output_file.write("\n".join(code_lines))
+
 
             else:
                 output_file.write(line)
