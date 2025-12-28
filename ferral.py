@@ -67,8 +67,8 @@ with open(input_filepath, 'r', encoding='utf-8') as file:
                     code_lines = response_str.split("\n")
                     if code_lines[0].startswith("```"):
                         code_lines.pop(0)
-                    if code_lines[len(code_lines) - 1].startswith("```"):
-                        code_lines.pop(len(code_lines) - 1)
+                    if code_lines[-1].startswith("```"):
+                        code_lines.pop(-1)
                     
                     output_file.write("\n".join(code_lines))
 
